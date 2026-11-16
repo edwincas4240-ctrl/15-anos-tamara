@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 15 Años — Tamara Castiblanco Trujillo</title>
+    
+    <!-- Google Fonts: Cormorant Garamond, Playfair Display & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome para iconos elegantes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Canvas Confetti para el efecto festivo al confirmar -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        crema: '#FBF7F4',
+                        cremaSuave: '#F5EDE8',
+                        vinotinto: '#6B1426',
+                        vinotintoOscuro: '#4A0B18',
+                        vinotintoClaro: '#8E243B',
+                        rosaPalo: '#D8A7B1',
+                        dorado: '#C5A059',
+                        doradoClaro: '#E5CE9E',
+                        doradoOscuro: '#9A7632',
+                        textoOscuro: '#2C181C',
+                        textoSuave: '#5E454A'
+                    },
+                    fontFamily: {
+                        serifDisplay: ['"Playfair Display"', 'serif'],
+                        serifElegant: ['"Cormorant Garamond"', 'serif'],
+                        sansClean: ['"Montserrat"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados para estética lujosa vinotinto & dorado */
+        body {
+            background-color: #FBF7F4;
+            color: #2C181C;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Textura sutil de papel fino */
+        .bg-paper-texture {
+            background-image: radial-gradient(#C5A059 0.5px, transparent 0.5px), radial-gradient(#6B1426 0.35px, #FBF7F4 0.35px);
+            background-size: 44px 44px;
+            background-position: 0 0, 22px 22px;
+        }
+
+        /* Marco dorado doble elegante */
+        .gold-double-border {
+            position: relative;
+            border: 1px solid rgba(197, 160, 89, 0.55);
+        }
+        .gold-double-border::before {
+            content: '';
+            position: absolute;
+            top: 7px;
+            left: 7px;
+            right: 7px;
+            bottom: 7px;
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            pointer-events: none;
+            border-radius: inherit;
+        }
+
+        /* Gradiente de texto dorado metálico */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #8F6B29 0%, #D4AF6A 45%, #9A7632 75%, #E5CE9E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gradiente vinotinto lujoso */
+        .bg-vinotinto-luxury {
+            background: linear-gradient(135deg, #4A0B18 0%, #6B1426 50%, #4A0B18 100%);
+        }
+
+        /* Animación de destellos y pétalos flotantes */
+        @keyframes floatSlow {
+            0% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.75;
+            }
+            80% {
+                opacity: 0.65;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        .floating-petal {
+            position: fixed;
+            bottom: -30px;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatSlow linear infinite;
+        }
+
+        /* Animación suave de entrada */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.9s ease-out forwards;
+        }
+
+        /* Estilo personalizado para scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FBF7F4;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #8E243B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
+        }
+    </style>
+</head>
+<body class="bg-paper-texture antialiased selection:bg-vinotinto selection:text-white">
+
+    <!-- Contenedor de destellos dorados y pétalos vinotinto flotantes -->
+    <div id="petals-container" aria-hidden="true"></div>
+
+    <!-- ==================== SECCIÓN 1: HERO & DEDICATORIA ==================== -->
+    <header class="relative min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden">
+        <!-- Resplandores decorativos de fondo -->
+        <div class="absolute top-10 left-10 w-72 h-72 bg-vinotinto/15 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-doradoClaro/35 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-3xl w-full bg-white/90 backdrop-blur-md rounded-3xl p-8 sm:p-14 md:p-16 text-center shadow-2xl gold-double-border animate-fade-up">
+            <!-- Ornamento superior SVG -->
+            <div class="flex justify-center mb-5">
+                <svg class="w-36 h-8 text-dorado" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 20H75M125 20H190" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    <path d="M100 4L104.5 15.5L116 20L104.5 24.5L100 36L95.5 24.5L84 20L95.5 15.5L100 4Z" fill="#6B1426" fill-opacity="0.15" stroke="currentColor" stroke-width="1.3"/>
+                    <circle cx="75" cy="20" r="2.5" fill="currentColor"/>
+                    <circle cx="125" cy="20" r="2.5" fill="currentColor"/>
+                </svg>
+            </div>
+
+            <p class="uppercase tracking-[0.35em] text-xs sm:text-sm text-vinotinto font-semibold mb-2">
+                ¡Estás cordialmente invitado a celebrar!
+            </p>
+
+            <h2 class="font-serifElegant italic text-2xl sm:text-3xl text-textoSuave mb-1">
+                Mis 15 Años
+            </h2>
+
+            <h1 id="display-quinceanera-name" class="font-serifDisplay text-4xl sm:text-6xl md:text-7xl font-bold text-gold-gradient py-2 tracking-tight leading-tight">
+                Tamara<br class="sm:hidden"> Castiblanco Trujillo
+            </h1>
+
+            <!-- Divisor fino con corona -->
+            <div class="flex items-center justify-center gap-4 my-6">
+                <span class="h-[1px] w-16 sm:w-28 bg-gradient-to-r from-transparent to-dorado"></span>
+                <i class="fa-solid fa-crown text-vinotinto text-base"></i>
+                <span class="h-[1px] w-16 sm:w-28 bg-gradient-to-l from-transparent to-dorado"></span>
+            </div>
+
+            <!-- Frase emotiva inspirada en su video -->
+            <blockquote id="display-welcome-quote" class="font-serifElegant italic text-xl sm:text-2xl text-textoOscuro max-w-xl mx-auto leading-relaxed mb-6">
+                "Y pensar que te cargaba en mis brazos el día de ayer... Hoy celebramos toda la alegría que has traído a nuestras vidas y el ser hermoso en el que te has convertido."
+            </blockquote>
+
+            <p class="text-xs sm:text-sm text-textoSuave max-w-lg mx-auto mb-8 leading-relaxed">
+                Con la bendición de Dios y el amor de su padre <strong class="text-vinotinto font-semibold">Edwin Castiblanco</strong>, tenemos el honor de invitarte a compartir esta noche mágica e inolvidable.
+            </p>
+
+            <!-- Fecha destacada -->
+            <div class="inline-flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 bg-vinotinto-luxury text-white border border-dorado/60 rounded-2xl px-7 py-4 mb-8 shadow-lg">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-regular fa-calendar text-doradoClaro"></i>
+                    <span id="display-event-date-text" class="font-serifDisplay text-lg sm:text-xl font-semibold tracking-wide">
+                        Sábado, 16 de Enero de 2027
+                    </span>
+                </div>
+                <span class="hidden sm:inline text-doradoClaro">•</span>
+                <div class="flex items-center gap-2">
+                    <i class="fa-regular fa-clock text-doradoClaro"></i>
+                    <span id="display-event-time-text" class="font-medium text-sm sm:text-base text-doradoClaro">
+                        7:00 PM
+                    </span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="#rsvp-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-doradoOscuro via-dorado to-doradoOscuro hover:opacity-95 text-white font-semibold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded-full shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    <span>Confirmar Asistencia</span>
+                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                </a>
+                <a href="#video-section" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-cremaSuave text-vinotinto border border-vinotinto/30 font-semibold text-xs sm:text-sm uppercase tracking-widest px-7 py-4 rounded-full transition-all">
+                    <i class="fa-solid fa-play text-xs"></i>
+                    <span>Ver Invitación en Video</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== SECCIÓN 2: CUENTA REGRESIVA ==================== -->
+    <section class="py-16 px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="uppercase tracking-[0.25em] text-xs text-vinotinto font-bold">La cuenta regresiva ha comenzado</span>
+            <h3 class="font-serifDisplay text-3xl sm:text-4xl text-textoOscuro mt-2 mb-3">
+                Faltan tan solo...
+            </h3>
+            <p class="text-xs text-textoSuave mb-10">Sábado 16 de Enero de 2027 • 7:00 PM (Hora Colombia)</p>
+
+            <!-- Cajas del contador -->
+            <div id="countdown-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto">
+                <!-- Días -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-lg border border-dorado/40 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-vinotinto via-dorado to-vinotinto"></div>
+                    <span id="cd-days" class="block font-serifDisplay text-4xl sm:text-5xl font-bold text-vinotinto group-hover:text-doradoOscuro transition-colors">00</span>
+                    <span class="block uppercase tracking-widest text-[11px] sm:text-xs text-textoSuave mt-2 font-semibold">Días</span>
+                </div>
+
+                <!-- Horas -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-lg border border-dorado/40 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-vinotinto via-dorado to-vinotinto"></div>
+                    <span id="cd-hours" class="block font-serifDisplay text-4xl sm:text-5xl font-bold text-vinotinto group-hover:text-doradoOscuro transition-colors">00</span>
+                    <span class="block uppercase tracking-widest text-[11px] sm:text-xs text-textoSuave mt-2 font-semibold">Horas</span>
+                </div>
+
+                <!-- Minutos -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-lg border border-dorado/40 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-vinotinto via-dorado to-vinotinto"></div>
+                    <span id="cd-minutes" class="block font-serifDisplay text-4xl sm:text-5xl font-bold text-vinotinto group-hover:text-doradoOscuro transition-colors">00</span>
+                    <span class="block uppercase tracking-widest text-[11px] sm:text-xs text-textoSuave mt-2 font-semibold">Minutos</span>
+                </div>
+
+                <!-- Segundos -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-lg border border-dorado/40 relative overflow-hidden group">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-vinotinto via-dorado to-vinotinto"></div>
+                    <span id="cd-seconds" class="block font-serifDisplay text-4xl sm:text-5xl font-bold text-doradoOscuro group-hover:text-vinotinto transition-colors">00</span>
+                    <span class="block uppercase tracking-widest text-[11px] sm:text-xs text-textoSuave mt-2 font-semibold">Segundos</span>
+                </div>
+            </div>
+
+            <!-- Mensaje cuando llega el día -->
+            <div id="countdown-finished" class="hidden mt-6 bg-vinotinto text-white border border-dorado rounded-2xl p-6 max-w-xl mx-auto shadow-lg">
+                <p class="font-serifDisplay text-2xl text-doradoClaro font-semibold">
+                    ¡Hoy es el gran día! Nos vemos en la celebración de Tamara.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN 3: VIDEO DE INVITACIÓN ==================== -->
+    <section id="video-section" class="py-14 px-4 relative z-10">
+        <div class="max-w-3xl mx-auto bg-white/95 backdrop-blur-sm rounded-3xl p-6 sm:p-10 shadow-xl gold-double-border text-center">
+            <span class="uppercase tracking-[0.25em] text-xs text-vinotinto font-bold">Un Recuerdo Especial</span>
+            <h3 class="font-serifDisplay text-3xl sm:text-4xl text-textoOscuro mt-1 mb-3">
+                Invitación Oficial en Video
+            </h3>
+            <p class="text-sm text-textoSuave max-w-lg mx-auto mb-6">
+                Dale play para ver el video que hemos preparado con tanto amor para celebrar los 15 años de Tamara.
+            </p>
+
+            <!-- Marco elegante vertical/adaptable para el video -->
+            <div class="max-w-sm mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-dorado bg-vinotintoOscuro relative">
+                <video id="invitation-video" controls playsinline preload="metadata" class="w-full h-auto block max-h-[540px] object-contain bg-black">
+                    <source src="video_1.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de video HTML5.
+                </video>
+
+                <!-- Aviso amigable si el archivo video_1.mp4 aún no está en la carpeta al probar localmente -->
+                <div id="video-fallback-msg" class="hidden p-8 text-center bg-vinotinto-luxury text-white">
+                    <div class="w-14 h-14 mx-auto rounded-full bg-dorado/20 border border-dorado flex items-center justify-center text-doradoClaro text-xl mb-4">
+                        <i class="fa-solid fa-film"></i>
+                    </div>
+                    <h4 class="font-serifDisplay text-xl text-doradoClaro mb-2">Video de Invitación de Tamara</h4>
+                    <p class="text-xs text-cremaSuave/90 leading-relaxed mb-3">
+                        Para que el video se reproduzca automáticamente aquí, sube tu archivo <code class="bg-black/30 px-1.5 py-0.5 rounded text-doradoClaro font-mono">video_1.mp4</code> en la misma carpeta del repositorio de GitHub junto a <code class="bg-black/30 px-1.5 py-0.5 rounded text-doradoClaro font-mono">index.html</code>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN 4: DETALLES Y CÓDIGO DE VESTIMENTA ==================== -->
+    <section class="py-16 px-4 relative z-10">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="uppercase tracking-[0.25em] text-xs text-vinotinto font-bold">Itinerario & Etiqueta</span>
+                <h3 class="font-serifDisplay text-3xl sm:text-4xl text-textoOscuro mt-2">
+                    Detalles de la Celebración
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Tarjeta 1: Lugar y Dirección -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-3xl p-8 text-center shadow-lg border border-dorado/35 flex flex-col justify-between hover:shadow-xl transition-shadow">
+                    <div>
+                        <div class="w-16 h-16 mx-auto bg-vinotinto text-doradoClaro border border-dorado rounded-full flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                        </div>
+                        <h4 class="font-serifDisplay text-2xl font-semibold text-textoOscuro mb-2">
+                            Recepción
+                        </h4>
+                        <p id="display-venue-name" class="font-bold text-vinotinto text-base mb-2">
+                            Salón de Eventos Dgerard
+                        </p>
+                        <p id="display-venue-address" class="text-sm text-textoSuave leading-relaxed mb-6">
+                            Calle 15 Sur # 18 - 18<br>Barrio Restrepo, Bogotá
+                        </p>
+                    </div>
+                    <div>
+                        <a id="display-map-link" href="https://www.google.com/maps/search/?api=1&query=Salon+de+Eventos+Dgerard+Calle+15+Sur+18-18+Barrio+Restrepo+Bogota" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl bg-vinotinto hover:bg-vinotintoOscuro text-white border border-dorado/50 text-xs font-semibold uppercase tracking-wider transition-colors shadow">
+                            <i class="fa-solid fa-location-dot text-doradoClaro"></i>
+                            <span>Ver en Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Código de Vestimenta Destacado -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-3xl p-8 text-center shadow-xl border-2 border-vinotinto/40 flex flex-col justify-between hover:shadow-2xl transition-shadow relative">
+                    <div>
+                        <div class="w-16 h-16 mx-auto bg-vinotinto text-doradoClaro border border-dorado rounded-full flex items-center justify-center text-2xl mb-5 shadow-md">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h4 class="font-serifDisplay text-2xl font-semibold text-textoOscuro mb-1">
+                            Código de Vestimenta
+                        </h4>
+                        <p class="font-semibold text-doradoOscuro text-xs uppercase tracking-widest mb-4">
+                            Vestuario Elegante
+                        </p>
+                        
+                        <div class="space-y-2 text-sm text-textoOscuro mb-5 bg-crema p-3.5 rounded-2xl border border-dorado/25">
+                            <p><strong class="text-vinotinto">Ellas:</strong> Divinas y glamurosas</p>
+                            <p><strong class="text-vinotinto">Ellos:</strong> Elegantes y con estilo</p>
+                        </div>
+                    </div>
+
+                    <!-- Aviso Importante Color Vinotinto Reservado -->
+                    <div class="p-3.5 rounded-2xl bg-vinotinto-luxury text-white border border-dorado shadow-inner">
+                        <div class="flex items-center justify-center gap-2 mb-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-[#5A0E1D] border border-doradoClaro inline-block"></span>
+                            <span class="w-3.5 h-3.5 rounded-full bg-[#7A162B] border border-doradoClaro inline-block"></span>
+                            <span class="w-3.5 h-3.5 rounded-full bg-[#99223B] border border-doradoClaro inline-block"></span>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-doradoClaro ml-1">Aviso Importante</span>
+                        </div>
+                        <p class="text-xs leading-relaxed text-crema">
+                            Lo más importante: <strong>Nos reservamos el color vinotinto</strong> en todas sus tonalidades para la quinceañera.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Lluvia de Sobres -->
+                <div class="bg-white/95 backdrop-blur-sm rounded-3xl p-8 text-center shadow-lg border border-dorado/35 flex flex-col justify-between hover:shadow-xl transition-shadow">
+                    <div>
+                        <div class="w-16 h-16 mx-auto bg-vinotinto text-doradoClaro border border-dorado rounded-full flex items-center justify-center text-2xl mb-6 shadow-md">
+                            <i class="fa-regular fa-envelope-open"></i>
+                        </div>
+                        <h4 class="font-serifDisplay text-2xl font-semibold text-textoOscuro mb-2">
+                            Detalle Especial
+                        </h4>
+                        <p class="font-bold text-vinotinto text-base mb-2">
+                            Lluvia de Sobres
+                        </p>
+                        <p class="text-sm text-textoSuave leading-relaxed mb-6">
+                            Tu presencia y compañía son mi mejor regalo. Si deseas tener un detalle adicional conmigo, contaremos con un cofre especial en la recepción.
+                        </p>
+                    </div>
+                    <div class="py-3 px-4 rounded-xl bg-crema text-xs text-vinotinto font-semibold border border-dorado/30">
+                        <i class="fa-solid fa-heart text-vinotinto mr-1"></i> ¡Gracias por acompañarme!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN 5: FORMULARIO RSVP ==================== -->
+    <section id="rsvp-section" class="py-16 px-4 relative z-10">
+        <div class="max-w-2xl mx-auto bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-12 shadow-2xl gold-double-border">
+            <div class="text-center mb-8">
+                <span class="uppercase tracking-[0.25em] text-xs text-vinotinto font-bold">R.S.V.P.</span>
+                <h3 class="font-serifDisplay text-3xl sm:text-4xl text-textoOscuro mt-2">
+                    Confirma tu Asistencia
+                </h3>
+                <p class="text-sm text-textoSuave mt-2 max-w-md mx-auto">
+                    Los mejores recuerdos se crean con personas especiales como tú. Será un placer que nos acompañes.
+                </p>
+            </div>
+
+            <!-- Formulario -->
+            <form id="rsvp-form" class="space-y-5">
+                <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"><label for="rsvp-website-trap">No llenar</label><input id="rsvp-website-trap" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+                <!-- Nombre completo -->
+                <div>
+                    <label for="guest-name" class="block text-xs font-bold uppercase tracking-wider text-textoOscuro mb-2">
+                        Nombre Completo del Invitado *
+                    </label>
+                    <input type="text" id="guest-name" required placeholder="Ej. Camila Andrea Rodríguez"
+                        class="w-full px-4 py-3.5 rounded-xl bg-crema border border-dorado/40 focus:border-vinotinto focus:ring-2 focus:ring-vinotinto/15 outline-none text-sm text-textoOscuro transition-all">
+                </div>
+
+                <!-- ¿Asistirás? -->
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-textoOscuro mb-2">
+                        ¿Podrás acompañarnos? *
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="attendance" value="Sí, ahí estaré" class="peer sr-only" checked onchange="toggleCompanionsField(true)">
+                            <div class="p-3.5 rounded-xl border border-dorado/40 bg-crema peer-checked:bg-vinotinto peer-checked:text-white peer-checked:border-vinotinto text-center transition-all flex items-center justify-center gap-2 text-sm font-semibold text-textoOscuro shadow-sm">
+                                <i class="fa-solid fa-check-circle text-dorado"></i>
+                                <span>Sí, ahí estaré</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="attendance" value="No podré asistir" class="peer sr-only" onchange="toggleCompanionsField(false)">
+                            <div class="p-3.5 rounded-xl border border-dorado/40 bg-crema peer-checked:bg-gray-700 peer-checked:text-white peer-checked:border-gray-700 text-center transition-all flex items-center justify-center gap-2 text-sm font-medium text-textoSuave">
+                                <i class="fa-regular fa-times-circle"></i>
+                                <span>No podré asistir</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Número de pases / acompañantes -->
+                <div id="companions-wrapper" class="transition-all duration-300">
+                    <label for="guest-passes" class="block text-xs font-bold uppercase tracking-wider text-textoOscuro mb-2">
+                        Número de Pases / Acompañantes (Incluyéndote) *
+                    </label>
+                    <select id="guest-passes"
+                        class="w-full px-4 py-3.5 rounded-xl bg-crema border border-dorado/40 focus:border-vinotinto focus:ring-2 focus:ring-vinotinto/15 outline-none text-sm text-textoOscuro transition-all">
+                        <option value="1">1 Pase (Solo yo)</option>
+                        <option value="2">2 Pases (Yo + 1 acompañante)</option>
+                        <option value="3">3 Pases (Yo + 2 acompañantes)</option>
+                        <option value="4">4 Pases (Yo + 3 acompañantes)</option>
+                        <option value="5">5 Pases (Yo + 4 acompañantes)</option>
+                    </select>
+                </div>
+
+                <!-- Restricciones alimentarias -->
+                <div id="dietary-wrapper">
+                    <label for="guest-dietary" class="block text-xs font-bold uppercase tracking-wider text-textoOscuro mb-2">
+                        Alergias o Restricciones Alimentarias <span class="text-textoSuave font-normal lowercase">(opcional)</span>
+                    </label>
+                    <input type="text" id="guest-dietary" placeholder="Ej. Vegetariano, alergia a nueces, sin gluten..."
+                        class="w-full px-4 py-3.5 rounded-xl bg-crema border border-dorado/40 focus:border-vinotinto focus:ring-2 focus:ring-vinotinto/15 outline-none text-sm text-textoOscuro transition-all">
+                </div>
+
+                <!-- Canción sugerida -->
+                <div id="song-wrapper">
+                    <label for="guest-song" class="block text-xs font-bold uppercase tracking-wider text-textoOscuro mb-2">
+                        ¿Qué canción no puede faltar en la pista? <span class="text-textoSuave font-normal lowercase">(opcional)</span>
+                    </label>
+                    <div class="relative">
+                        <i class="fa-solid fa-music absolute left-4 top-4 text-vinotinto text-sm"></i>
+                        <input type="text" id="guest-song" placeholder="Nombre de la canción y artista"
+                            class="w-full pl-10 pr-4 py-3.5 rounded-xl bg-crema border border-dorado/40 focus:border-vinotinto focus:ring-2 focus:ring-vinotinto/15 outline-none text-sm text-textoOscuro transition-all">
+                    </div>
+                </div>
+
+                <!-- Mensaje o buenos deseos -->
+                <div>
+                    <label for="guest-message" class="block text-xs font-bold uppercase tracking-wider text-textoOscuro mb-2">
+                        Mensaje o Buenos Deseos para Tamara
+                    </label>
+                    <textarea id="guest-message" rows="3" placeholder="Escribe unas lindas palabras para recordar este día..."
+                        class="w-full px-4 py-3.5 rounded-xl bg-crema border border-dorado/40 focus:border-vinotinto focus:ring-2 focus:ring-vinotinto/15 outline-none text-sm text-textoOscuro transition-all resize-none"></textarea>
+                </div>
+
+                <!-- Botones de Acción: Enviar a Nube/Registro y Confirmar por WhatsApp -->
+                <div class="pt-3 space-y-3">
+                    <button type="submit" id="rsvp-submit-btn"
+                        class="w-full py-4 px-6 rounded-full bg-vinotinto-luxury hover:opacity-95 text-white border border-dorado font-semibold text-xs sm:text-sm uppercase tracking-widest shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane text-doradoClaro"></i>
+                        <span>Confirmar Asistencia</span>
+                    </button>
+
+                    <button type="button" onclick="sendWhatsAppConfirmation()"
+                        class="w-full py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider shadow transition-all flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Confirmar Directamente por WhatsApp</span>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Mensaje de éxito tras enviar (oculto por defecto) -->
+            <div id="rsvp-success-box" class="hidden text-center py-8 px-4 bg-crema rounded-2xl border border-dorado animate-fade-up">
+                <div class="w-16 h-16 mx-auto bg-vinotinto text-doradoClaro rounded-full flex items-center justify-center text-3xl mb-4 shadow-md">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+                <h4 id="success-title" class="font-serifDisplay text-2xl sm:text-3xl font-bold text-textoOscuro mb-2">
+                    ¡Gracias por confirmar!
+                </h4>
+                <p id="success-subtitle" class="text-sm text-textoSuave max-w-md mx-auto mb-4 leading-relaxed">
+                    Hemos registrado tu respuesta con mucho cariño. ¡Nos hará muy feliz celebrar este momento tan especial contigo!
+                </p>
+                <p id="cloud-sync-status" class="text-xs font-medium text-vinotinto mb-6"></p>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <button type="button" onclick="sendWhatsAppConfirmation()" class="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-2 shadow">
+                        <i class="fa-brands fa-whatsapp text-base"></i>
+                        <span>También enviar por WhatsApp</span>
+                    </button>
+                    <button type="button" onclick="resetRsvpForm()" class="px-5 py-2.5 rounded-full border border-dorado text-xs font-semibold uppercase tracking-wider text-vinotinto hover:bg-white">
+                        Registrar otro invitado
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="py-12 px-4 text-center border-t border-dorado/30 mt-12 relative z-10 bg-vinotinto-luxury text-white">
+        <p class="font-serifElegant italic text-2xl sm:text-3xl text-doradoClaro mb-2">
+            Con amor, <span id="footer-quinceanera-name" class="font-semibold text-white">Tamara Castiblanco Trujillo</span>
+        </p>
+        <p class="text-xs text-cremaSuave/80 tracking-widest uppercase mb-4">
+            Mis 15 Años • Sábado 16 de Enero de 2027 • Salón de Eventos Dgerard
+        </p>
+    </footer>
+
+    <!-- ==================== LÓGICA JAVASCRIPT ==================== -->
+    <script>
+        // Configuración oficial del evento de Tamara Castiblanco Trujillo con la URL de Apps Script integrada
+        const DEFAULT_CLOUD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwIDGa5js452rzWiTtm_JlDjfWy-t1Y1wxZZTsHAppsSbZtv_4dUiKB9gXl-t88A_nE_/exec'; 
+
+        const defaultConfig = {
+            name: 'Tamara Castiblanco Trujillo',
+            date: '2027-01-16', // Sábado 16 de Enero de 2027
+            time: '19:00',      // 7:00 PM
+            venue: 'Salón de Eventos Dgerard',
+            address: 'Calle 15 Sur # 18 - 18, Barrio Restrepo, Bogotá',
+            mapUrl: 'https://www.google.com/maps/search/?api=1&query=Salon+de+Eventos+Dgerard+Calle+15+Sur+18-18+Barrio+Restrepo+Bogota',
+            whatsapp: '573027047025', // Número tomado de tu invitación: 3027047025
+            endpointUrl: DEFAULT_CLOUD_ENDPOINT
+        };
+
+        let currentConfig = { ...defaultConfig };
+        let guestsList = [];
+        let countdownInterval = null;
+
+        // Inicialización al cargar la página
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingSparkles();
+            setupVideoFallback();
+            loadConfiguration();
+            loadGuests();
+            applyConfigurationToUI();
+            startCountdown();
+        });
+
+        // Verificar si video_1.mp4 carga correctamente; si no existe localmente aún, mostrar aviso amigable
+        function setupVideoFallback() {
+            const videoEl = document.getElementById('invitation-video');
+            const fallbackEl = document.getElementById('video-fallback-msg');
+            if (!videoEl || !fallbackEl) return;
+
+            const sourceEl = videoEl.querySelector('source');
+            if (sourceEl) {
+                sourceEl.addEventListener('error', () => {
+                    videoEl.classList.add('hidden');
+                    fallbackEl.classList.remove('hidden');
+                });
+            }
+            videoEl.addEventListener('error', () => {
+                videoEl.classList.add('hidden');
+                fallbackEl.classList.remove('hidden');
+            });
+        }
+
+        // Crear destellos dorados y pétalos vinotinto flotantes decorativos
+        function createFloatingSparkles() {
+            const container = document.getElementById('petals-container');
+            const count = 18;
+
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('div');
+                el.classList.add('floating-petal');
+                
+                const size = Math.random() * 12 + 8;
+                const left = Math.random() * 100;
+                const duration = Math.random() * 12 + 12;
+                const delay = Math.random() * 10;
+                const isGold = Math.random() > 0.35;
+
+                el.style.width = `${size}px`;
+                el.style.height = `${size}px`;
+                el.style.left = `${left}vw`;
+                el.style.animationDuration = `${duration}s`;
+                el.style.animationDelay = `${delay}s`;
+
+                if (isGold) {
+                    el.innerHTML = `<svg viewBox="0 0 24 24" fill="#C5A059" opacity="0.5"><path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z"/></svg>`;
+                } else {
+                    el.innerHTML = `<svg viewBox="0 0 24 24" fill="#6B1426" opacity="0.35"><path d="M12 2C7 7 4 12 7 17C10 22 14 22 17 17C20 12 17 7 12 2Z"/></svg>`;
+                }
+
+                container.appendChild(el);
+            }
+        }
+
+        function loadConfiguration() { currentConfig = { ...defaultConfig }; }
+
+        // Aplicar configuración a los textos de la interfaz
+        function applyConfigurationToUI() {
+            const [year, month, day] = currentConfig.date.split('-').map(Number);
+            const dateObj = new Date(year, month - 1, day);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = dateObj.toLocaleDateString('es-ES', options);
+            document.getElementById('display-event-date-text').textContent = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+
+            const [hours, minutes] = currentConfig.time.split(':').map(Number);
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const hours12 = hours % 12 || 12;
+            const minsStr = String(minutes).padStart(2, '0');
+            document.getElementById('display-event-time-text').textContent = `${hours12}:${minsStr} ${ampm}`;
+        }
+
+        // Cuenta Regresiva exacta en tiempo real (Hora Colombia UTC-5)
+        function startCountdown() {
+            if (countdownInterval) clearInterval(countdownInterval);
+
+            function updateTimer() {
+                const isoTarget = `${currentConfig.date}T${currentConfig.time}:00-05:00`;
+                const targetTime = new Date(isoTarget).getTime();
+                const now = Date.now();
+                const diff = targetTime - now;
+
+                const finishedEl = document.getElementById('countdown-finished');
+
+                if (isNaN(targetTime) || diff <= 0) {
+                    document.getElementById('cd-days').textContent = '00';
+                    document.getElementById('cd-hours').textContent = '00';
+                    document.getElementById('cd-minutes').textContent = '00';
+                    document.getElementById('cd-seconds').textContent = '00';
+                    finishedEl.classList.remove('hidden');
+                    return;
+                }
+
+                finishedEl.classList.add('hidden');
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+                document.getElementById('cd-hours').textContent = String(hrs).padStart(2, '0');
+                document.getElementById('cd-minutes').textContent = String(mins).padStart(2, '0');
+                document.getElementById('cd-seconds').textContent = String(secs).padStart(2, '0');
+            }
+
+            updateTimer();
+            countdownInterval = setInterval(updateTimer, 1000);
+        }
+
+        // Mostrar/Ocultar campos de pases según asistencia
+        function toggleCompanionsField(isAttending) {
+            const companionsWrapper = document.getElementById('companions-wrapper');
+            const dietaryWrapper = document.getElementById('dietary-wrapper');
+            const songWrapper = document.getElementById('song-wrapper');
+
+            if (isAttending) {
+                companionsWrapper.classList.remove('hidden');
+                dietaryWrapper.classList.remove('hidden');
+                songWrapper.classList.remove('hidden');
+            } else {
+                companionsWrapper.classList.add('hidden');
+                dietaryWrapper.classList.add('hidden');
+                songWrapper.classList.add('hidden');
+            }
+        }
+
+        function loadGuests() { guestsList = []; }
+
+        // Obtener datos actuales del formulario
+        function getFormValues() {
+            const name = document.getElementById('guest-name').value.trim();
+            const attendanceRadio = document.querySelector('input[name="attendance"]:checked');
+            const attendanceVal = attendanceRadio ? attendanceRadio.value : 'Sí, ahí estaré';
+            const isAttending = attendanceVal === 'Sí, ahí estaré';
+            const passes = isAttending ? parseInt(document.getElementById('guest-passes').value, 10) : 0;
+            const dietary = isAttending ? (document.getElementById('guest-dietary').value.trim() || 'Ninguna') : 'No aplica';
+            const song = isAttending ? (document.getElementById('guest-song').value.trim() || 'Sin sugerencia') : 'No aplica';
+            const message = document.getElementById('guest-message').value.trim();
+
+            return { name, attendanceVal, isAttending, passes, dietary, song, message };
+        }
+
+        // Enviar confirmación directa por WhatsApp
+        function sendWhatsAppConfirmation() {
+            const data = getFormValues();
+            const guestName = data.name || 'Un invitado';
+            
+            let text = `¡Hola! Confirmo mi respuesta para los *15 Años de Tamara Castiblanco Trujillo* (16 de Enero 2027):\n\n`;
+            text += `• *Invitado:* ${guestName}\n`;
+            text += `• *Asistencia:* ${data.attendanceVal}\n`;
+            if (data.isAttending) {
+                text += `• *Número de pases:* ${data.passes}\n`;
+                if (data.dietary !== 'Ninguna') text += `• *Alergias/Dieta:* ${data.dietary}\n`;
+                if (data.song !== 'Sin sugerencia') text += `• *Canción sugerida:* ${data.song}\n`;
+            }
+            if (data.message) {
+                text += `• *Mensaje para Tamara:* "${data.message}"\n`;
+            }
+
+            const phone = (currentConfig.whatsapp || '573027047025').replace(/\D/g, '');
+            const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(waUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        // Enviar confirmación a Google Apps Script
+        document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const data = getFormValues();
+            if (!data.name) return;
+
+            const submitBtn = document.getElementById('rsvp-submit-btn');
+            const originalBtnHtml = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i><span>Enviando confirmación...</span>`;
+
+            const payload = {
+                evento: '15 Años Tamara Castiblanco Trujillo',
+                invitado: data.name,
+                asistencia: data.attendanceVal,
+                asiste: data.isAttending,
+                pases: data.passes,
+                alergias_dieta: data.dietary,
+                cancion_sugerida: data.song,
+                mensaje: data.message,
+                fecha_registro: new Date().toISOString(),
+                website: document.getElementById('rsvp-website-trap')?.value || ''
+            };
+
+            let sent = false;
+            try {
+                await fetch(currentConfig.endpointUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                });
+                sent = true;
+            } catch (err) {
+                console.error('No fue posible enviar la confirmación:', err);
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+            if (!sent) {
+                alert('No pudimos enviar tu confirmación. Revisa tu conexión e inténtalo nuevamente, o comunícate con los organizadores.');
+                return;
+            }
+
+            document.getElementById('rsvp-form').classList.add('hidden');
+            const successBox = document.getElementById('rsvp-success-box');
+            const successTitle = document.getElementById('success-title');
+            const successSubtitle = document.getElementById('success-subtitle');
+            const cloudStatusEl = document.getElementById('cloud-sync-status');
+            cloudStatusEl.textContent = '¡Solicitud guardada con éxito en Google Sheets!';
+            if (data.isAttending) {
+                successTitle.textContent = `¡Gracias por confirmar, ${data.name.split(' ')[0]}!`;
+                successSubtitle.textContent = `Hemos recibido tu solicitud de ${data.passes} ${data.passes === 1 ? 'pase' : 'pases'}. Recuerda que el color vinotinto está reservado para Tamara.`;
+                triggerConfetti();
+            } else {
+                successTitle.textContent = `Gracias por avisarnos, ${data.name.split(' ')[0]}`;
+                successSubtitle.textContent = 'Sentiremos mucho tu ausencia, pero agradecemos de corazón tus buenos deseos para Tamara.';
+            }
+            successBox.classList.remove('hidden');
+        });
+
+        // Reiniciar formulario RSVP para registrar otro invitado
+        function resetRsvpForm() {
+            document.getElementById('rsvp-form').reset();
+            toggleCompanionsField(true);
+            document.getElementById('rsvp-success-box').classList.add('hidden');
+            document.getElementById('rsvp-form').classList.remove('hidden');
+        }
+
+        // Efecto festivo de confeti en tonos vinotinto y dorado
+        function triggerConfetti() {
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 95,
+                    spread: 80,
+                    origin: { y: 0.6 },
+                    colors: ['#6B1426', '#8E243B', '#C5A059', '#E5CE9E', '#FFFFFF']
+                });
+            }
+        }
+    </script>
+</body>
+</html>
