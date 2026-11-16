@@ -563,7 +563,7 @@
             });
         });
 
-        // Botón de confirmación directa por WhatsApp
+        // Botón de confirmación directa por WhatsApp con tu número real
         function sendWhatsAppConfirmation() {
             const name = document.getElementById('guest-name').value || 'Invitado';
             const attendance = document.querySelector('input[name="attendance"]:checked').value;
@@ -572,7 +572,7 @@
 
             const text = `¡Hola! Te escribo para confirmar mi asistencia a los 15 años de Tamara:%0A%0A*Nombre:* ${encodeURIComponent(name)}%0A*Asistencia:* ${encodeURIComponent(attendance)}%0A*Pases:* ${encodeURIComponent(passes)}%0A*Mensaje:* ${encodeURIComponent(message || '¡Feliz cumpleaños!')}`;
             
-            // Número de WhatsApp del padre (Edwin Castiblanco) o contacto organizador
+            // Número de WhatsApp configurado: +57 302 7047025
             window.open(`https://wa.me/573027047025?text=${text}`, '_blank');
         }
     </script>
